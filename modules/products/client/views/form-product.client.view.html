@@ -1,0 +1,43 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.product._id ? 'Edit Product' : 'New Product'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.productForm" class="form-horizontal" ng-submit="vm.save(vm.form.productForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="namep">Product Name</label>
+          <input name="namep" type="text" ng-model="vm.product.namep" id="namep" class="form-control" placeholder="namep" required>
+          <div ng-messages="vm.form.productForm.namep.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Product name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="description">description</label>
+          <input name="description" type="text" ng-model="vm.product.description" id="description" class="form-control" placeholder="description" required>
+          <div ng-messages="vm.form.productForm.description.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Product name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="namep">price</label>
+          <input name="price" type="text" ng-model="vm.product.price" id="namep" class="form-control" placeholder="price" required>
+          <div ng-messages="vm.form.productForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Product name is required.</p>
+          </div>
+        </div>
+
+       
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.product._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

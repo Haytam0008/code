@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Paniers</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="panier in vm.paniers"
+       ui-sref="paniers.view({ panierId: panier._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="panier.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="panier.user" ng-bind="panier.user.displayName"></span>
+        <span ng-if="!panier.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="panier.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.paniers.$resolved && !vm.paniers.length">
+    No Paniers yet, why don't you <a ui-sref="paniers.create">create one</a>?
+  </div>
+</section>
